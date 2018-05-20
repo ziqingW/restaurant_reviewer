@@ -1,0 +1,273 @@
+/*home page*/
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.main {
+    flex: 1;
+}
+.search-background {
+    position: absolute;
+    top: 27%;
+    width: 100%;
+}
+.search-panel input {
+    border: 2px solid #dddddd;
+    border-radius: 2px;
+    width: 90%;
+    height: 35px;
+    max-width: 500px;
+    padding-left: 0.5em;
+    font-family: arial,sans-serif;
+    font-weight: bold;
+}
+.image-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logo {
+    width: 15%;
+    max-width: 75px;
+    margin-bottom: 0.8em;
+}
+#title {
+    width: 50%;
+    max-width: 500px;
+}
+.button-panel {
+    margin-top: 0.5em;
+}
+.btns {
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    width: 100px;
+    height: 33px;
+    background-color: #f2f2f2;
+    color: #757575;
+    box-shadow: 1px 1px 1px grey;
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+/*search results styles*/
+/*search bar*/
+.search-results-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+    padding: 1em;
+}
+.search-results-form input {
+    border: 2px solid #dddddd;
+    border-radius: 2px;
+    width: 70%;
+    height: 35px;
+    max-width: 500px;
+    padding-left: 0.5em;
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    margin-left: 2%;
+}
+.search-results-btns {
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+.search-results-btns:hover {
+    border: 2px solid #70c5ef;
+    box-shadow: 1px 1px 1px #70c5ef;
+}
+.search-results-btns img {
+    width: 100%;
+}
+#search-logo {
+    width: 10%;
+    max-width: 40px;
+}
+/*search results*/
+#searchTerm {
+    color: #2dc656;
+}
+.result-list h5{
+    padding: 1em;
+}
+.result-list li {
+    margin-bottom: 0.3em;
+}
+.result-list li a {
+    margin-left: 1em;
+    text-decoration: none;
+}
+.result-list li a:hover {
+    color: #f98a2f;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 0 #007bff;
+}
+/*individual restaurant page*/
+#stars i {
+    color: gold;
+}
+.restaurant-info {
+    margin: 3% auto;
+    max-width: 700px;
+    padding: 1.2em 0.5em;
+    border: 2px solid #dddddd;
+    border-radius: 2px;    
+}
+.restaurant-info ul{
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 90%;
+}
+.restaurant-info h4 {
+    font-size: 1.4em;
+    font-family: arial,sans-serif;
+}
+.restaurant-info-items {
+    display: flex;
+    justify-content: space-between;
+}
+/*review panel*/
+.reviews {
+    margin-top: 2%;
+}
+.reviews h5 {
+    color: red;
+}
+.review-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review-btns {
+    border: 1px solid;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    padding: 0 0.8em;
+    height: 32px;
+}
+#new-review {
+    background-color: #fc1900;
+}
+.review-btns:hover {
+    opacity: 0.8;
+}
+.review-item {
+    border: 2px solid #dddddd;
+    border-radius: 2px; 
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+}
+.reviewer-name {
+    padding-top: 1.2em;
+}
+.review-contents {
+    padding: 1em;
+}
+.review-star {
+    color: gold;
+}
+/*new review form*/
+.new-review-background {
+    display: none;
+    position: fixed;
+    top: 10%;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.5);
+}
+.new-review-form {
+    position: relative;
+    height: 100%;
+    width: 80%;
+    max-width: 500px;
+}
+.new-review-form form h6 {
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+.new-review-form form {
+    position: absolute;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    background-color: white;
+    top: 10%;
+    width: 100%;
+    padding: 1.5em;
+}
+.new-review-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+.new-review-item input[type="text"] {
+    border: 2px solid #dddddd;
+    border-radius: 2px;
+    width: 75%;
+    height: 35px;
+    max-width: 500px;
+    padding-left: 0.5em;
+    font-family: arial,sans-serif;
+    font-weight: bold;
+}
+.new-review-item input[type="number"] {
+    border: 2px solid #dddddd;
+    border-radius: 2px;
+    width: 30%;
+    height: 35px;
+    padding-left: 0.5em;
+    font-family: arial,sans-serif;
+}
+.new-review-item textarea {
+    border: 2px solid #dddddd;
+    border-radius: 2px;
+    width: 75%;
+    height: 100px;
+    padding-left: 0.5em;
+    font-family: arial,sans-serif;
+    margin-bottom: 0.5em;
+}
+#submit-new-review {
+    background-color: #229e03;
+    margin: 0.5em;
+}
+#cancel {
+    background-color: #dd7a08;
+    margin: 0.5em;
+}
+/*footer*/
+.push {
+    margin-bottom: 5%;
+}
+.footerset {
+    min-height: 5rem;
+    flex-shrink: 0;
+    opacity: 0.95;
+    padding-top:1rem;
+}
+#dc_logo {
+    width: 20%;
+    min-width: 90px;
+}
+.footer-icons {
+    font-size: 2em;
+}

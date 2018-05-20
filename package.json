@@ -1,0 +1,26 @@
+{
+  "name": "restaurant_reviewer",
+  "version": "1.0.0",
+  "description": "A reviewer for interested restaurants made with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziqingW/restaurant_reviewer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ziqingW/restaurant_reviewer/issues"
+  },
+  "homepage": "https://github.com/ziqingW/restaurant_reviewer#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.4",
+    "nunjucks": "^3.1.2",
+    "pg-promise": "^8.4.4"
+  }
+}

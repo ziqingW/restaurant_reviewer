@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block contents %}
+<div class="main">
+    <div class="search-results-background">
+        <img id="search-logo" src="/images/chef.png">
+        <form class="search-results-form" action="/search" method="get">
+            <input type="text" name="searchTerm">
+            <button class="search-results-btns" type="submit"><img src="/images/search.png"></button>
+            <button id="add_new" class="search-results-btns"><img src="/images/new.png"></button></button>
+        </form>
+    </div> 
+{% block individual %}{% endblock %}
+<div class="push"></div>
+</div>
+<footer class="footerset container">
+        <div class="row align-items-center text-center">
+            <div class="col-4"><a href="https://www.digitalcrafts.com/"><img id="dc_logo" src="/images/digitalcrafts-site-logo.png"></a></div>
+            <div class="col-8">
+                <div class="row">
+                    <div style="display: flex; align-items: flex-end; justify-content: center;" class="col-sm-6 col-12">
+                        <p id="author">Designed by <span style="color: blue;"><i>Ziqing</i></span></p>
+                    </div>
+                    <div class="footer-icons col-sm-6 col-12">
+                        <a href="https://www.linkedin.com/in/ziqing-wang-34549537/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/ziqingW" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/ziqing.wang.56" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="/mailform"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+{% block dependency %}
+<script src="/dependency/home.js"></script>
+{% endblock %}

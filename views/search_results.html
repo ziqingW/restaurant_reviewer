@@ -1,0 +1,14 @@
+{% extends "base_search_results.html" %}
+{% block title %}
+<title>Search results</title>
+{% endblock %}
+{% block individual %}
+<div class="container result-list">
+    <h5>Search results for <span id="searchTerm">{{ searchTerm }}</span> : {{ results | length}}</h5>
+<ol>
+    {% for result in results %}
+        <li><a href="/restaurant/{{ result.id }}">{{result.name}}</a></li>
+    {% endfor %}
+</ol>
+</div>
+{% endblock %}

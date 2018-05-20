@@ -1,0 +1,59 @@
+{% extends "base_search_results.html" %}
+{% block title %}
+<title>{{ info.name }}</title>
+{% endblock %}
+{% block individual %}
+<div class="container">
+    <div class="restaurant-info">
+    <h4 class="text-center">{{ info.name }}</h4>
+    <ul>
+    <li class="restaurant-info-items"><span>Address:</span><span>{{ info.address }}</span></li>
+    <li class="restaurant-info-items"><span>Category:</span><span>{{ info.category }}</span></li>
+    <li class="restaurant-info-items"><span>Stars:</span><span data-stars="{{ info.stars }}" id="stars"></span></li>
+    <li class="restaurant-info-items"><span>Favorite dish:</span><span>{{ info.favourite_dish }}</span></li>
+</ul>
+</div>
+<div class="reviews container">
+<div class="review-upper">
+<h5>Reviews</h5>
+<button class="review-btns" id="new-review">New review</button>
+</div>
+{% for review in reviews %}
+    <div class="review-item row">
+    <p class="reviewer-name col-3 text-center">Anonymous</p>
+    <div class="review-contents col-9">
+    <h6>{{ review.title }}</h6>
+    <p class="review-star" data-reviewerstars="{{ review.review_star }}">{{ review.review_star }}</p>
+    <p>{{ review.review }}</p>
+    </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+<div class="new-review-background">
+    <div class="new-review-form">
+    <form method="post" action="/submit">
+        <h6>Review for <span style="color:red;"><i>{{ info.name }}</i></span></h6>
+        <div class="new-review-item">
+        <label>Title</label><input type="text" name="title" required>
+        </div>
+        <div class="new-review-item">
+        <label>Stars</label>
+        <input type="number" step="0.5" placeholder="0.5 ~ 5.0" min="0.5" max="5.0" required>
+        </div>
+        <input type="hidden" name="restaurant" value="{{ info.id }}"/>
+        <div class="new-review-item">
+            <label>Contents</label>
+        <textarea name="review" required></textarea>
+        </div>
+        <div class="text-center">
+        <button class="review-btns" id="submit-new-review" type="submit">Submit</button>
+        <button class="review-btns" id="cancel">Cancel</button>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}
+{% block dependency %}
+<script src="/dependency/restaurant.js"></script>
+{% endblock %}

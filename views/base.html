@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %}{% endblock %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="site">
+    {% block contents %}{% endblock %}
+    <script src="/dependency/jquery-3.2.1.slim.min.js"></script>
+    <script src="/dependency/popper.min.js"></script>
+    <script src="/dependency/bootstrap.min.js"></script>
+    {% block dependency %}{% endblock %}
+</body>
+
+</html>

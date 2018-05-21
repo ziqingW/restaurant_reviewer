@@ -5,7 +5,6 @@ html, body {
 }
 .site {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
 }
 .main {
@@ -121,7 +120,7 @@ html, body {
     color: gold;
 }
 .restaurant-info {
-    margin: 3% auto;
+    margin: 3% auto 5% auto;
     max-width: 700px;
     padding: 1.2em 0.5em;
     border: 2px solid #dddddd;
@@ -141,6 +140,10 @@ html, body {
 .restaurant-info-items {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+.info-label {
+    font-weight: 600;
 }
 /*review panel*/
 .reviews {
@@ -222,19 +225,19 @@ html, body {
 .new-review-item input[type="text"] {
     border: 2px solid #dddddd;
     border-radius: 2px;
-    width: 75%;
+    width: 70%;
     height: 35px;
     max-width: 500px;
     padding-left: 0.5em;
     font-family: arial,sans-serif;
-    font-weight: bold;
+    font-weight: normal;
 }
 .new-review-item input[type="number"] {
     border: 2px solid #dddddd;
     border-radius: 2px;
     width: 30%;
     height: 35px;
-    padding-left: 0.5em;
+    padding-left: 1em;
     font-family: arial,sans-serif;
 }
 .new-review-item textarea {
@@ -270,4 +273,22 @@ html, body {
 }
 .footer-icons {
     font-size: 2em;
+}
+/*add restaurant*/
+.new-restaurant {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+#new-restaurant-form {
+    width: 90%;
+    max-width: 700px;
+}
+#new-restaurant-form h5 {
+    margin-bottom: 6%;
+}
+#new-restaurant-btn {
+    background-color: #229e03;
+    margin: 3em;
 }

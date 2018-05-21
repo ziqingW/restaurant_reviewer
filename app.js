@@ -70,8 +70,10 @@ app.post('/new_restaurant/submit', function(req, resp, next) {
     let name = req.body.new_name;
     let address = req.body.address;
     let category = req.body.category;
-    let q ="INSERT INTO restaurant (id, name, category, address) VALUES (DEFAULT, ${name}, ${category}, ${address}) RETURNING id";
-    db.query(q, {name: name, category: category, address: address})
+    let stars = req.body.stars;
+    let favorite = req.body.dish;
+    let q ="INSERT INTO restaurant (id, name, stars, favourite_dish, category, address) VALUES (DEFAULT, ${name}, ${stars}, ${dish}, ${category}, ${address}) RETURNING id";
+    db.query(q, {name: name, stars: stars, dish: favorite, category: category, address: address})
         .then(result => {
             resp.redirect(`/restaurant/${result[0].id}`);
         })

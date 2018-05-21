@@ -1,10 +1,14 @@
 {
   "name": "restaurant_reviewer",
+  "engines": {
+    "node": "8.9.4"
+  },
   "version": "1.0.0",
   "description": "A reviewer for interested restaurants made with Node.js",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "foreman": "3.0.0",
     "nodemon": "^1.17.4",
     "nunjucks": "^3.1.2",
     "pg-promise": "^8.4.4"

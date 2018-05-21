@@ -1,6 +1,5 @@
 const express = require('express');
 const pgp = require('pg-promise')({});
-pgp.pg.defaults.ssl = true;
 const db = pgp({
     database: 'restaurant',
     user: "postgres",

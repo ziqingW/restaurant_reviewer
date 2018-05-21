@@ -13,7 +13,7 @@ nunjucks.configure('views', {
     express: app,
     noCache: true
 });
-
+app.set('port', (process.env.PORT || 8000));
 app.use(express.static('public'));
 app.use(body_parser.urlencoded({extended: false}));
 //main page
@@ -81,6 +81,6 @@ app.post('/new_restaurant/submit', function(req, resp, next) {
 });
 
 
-app.listen(8000, function(){
-    console.log("Server starting on port 8000...");
+app.listen(app.get('port'), function(){
+    console.log("Server starting on port...", app.get('port'));
 });

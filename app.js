@@ -1,10 +1,7 @@
 const express = require('express');
 const pgp = require('pg-promise')({});
-const db = pgp({
-    database: 'restaurant',
-    user: "postgres",
-    host: "localhost"
-});
+
+const db = pgp(process.env.DATABASE_URL);
 const nunjucks = require('nunjucks');
 const app = express();
 const body_parser = require('body-parser');

@@ -1,12 +1,6 @@
 const express = require('express');
 const pgp = require('pg-promise')({});
-
-// const db = pgp(process.env.DATABASE_URL);
-const db = pgp({
-   host: 'localhost',
-   user: 'postgres',
-   database: 'restaurant'
-});
+const db = pgp(process.env.DATABASE_URL);
 const nunjucks = require('nunjucks');
 const app = express();
 const body_parser = require('body-parser');
@@ -20,7 +14,7 @@ nunjucks.configure('views', {
     noCache: true
 });
 //get port
-// app.set('port', (process.env.PORT || 8000));
+app.set('port', (process.env.PORT || 8000));
 app.use(express.static('public'));
 app.use(body_parser.urlencoded({extended: false}));
 app.use(session({
@@ -163,9 +157,6 @@ app.post('/new_restaurant/submit', function(req, resp, next) {
     }
 });
 
-// app.listen(app.get('port'), function(){
-//     console.log("Server starting on port...", app.get('port'));
-// });
-app.listen(8000, function(){
-    console.log("OK");
+app.listen(app.get('port'), function(){
+    console.log("Server starting on port...", app.get('port'));
 });

@@ -10,6 +10,43 @@ html, body {
 .main {
     flex: 1;
 }
+/*login panel*/
+.login-panel {
+    margin-top: 3%;
+    text-align: right;
+}
+.login-panel a {
+    margin: 0.5em;
+    color: #757575;
+    font-family: arial,sans-serif;
+    font-size: 0.9em;
+}
+/*login form*/
+.login-background {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.login-form {
+    width: 80%;
+    max-width: 400px;
+    margin-top: 5%;
+}
+.login-form h5 {
+    color: #757575;
+    margin-bottom: 1em;
+}
+.login-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0.5em;
+}
+.login-item input {
+    padding: 0.2em;
+    border: 2px solid #dddddd;
+    border-radius: 2px;
+}
 .search-background {
     position: absolute;
     top: 27%;

@@ -20,7 +20,7 @@
 </div>
 {% for review in reviews %}
     <div class="review-item row">
-    <p class="reviewer-name col-3 text-center">Anonymous</p>
+    <p class="reviewer-name col-3 text-center">{{ review.reviewer_name }}</p>
     <div class="review-contents col-9">
     <h6>{{ review.title }}</h6>
     <p class="review-star" data-reviewerstars="{{ review.review_star }}">{{ review.review_star }}</p>
@@ -39,7 +39,7 @@
         </div>
         <div class="new-review-item">
         <label>Stars</label>
-        <input type="number" step="0.5" placeholder="0.5 ~ 5.0" min="0.5" max="5.0" required>
+        <input type="number" step="0.5" name="reviewstar" placeholder="0.5 ~ 5.0" min="0.5" max="5.0" required>
         </div>
         <input type="hidden" name="restaurant" value="{{ info.id }}"/>
         <div class="new-review-item">

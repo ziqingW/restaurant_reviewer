@@ -1,0 +1,22 @@
+{% extends 'base_search_results.html' %}
+{% block title %}
+<title>Sign up</title>
+{% endblock %}
+{% block individual %}
+<div class="login-background">
+    <form method="post" class="container login-form text-center">
+        <h5>Sign up</h5>
+        <div class="login-item">
+        <label>Username</label><input name="username" type="text" required>
+        </div>
+        <div class="login-item">
+        <label>Password</label><input name="password" type="password" required>
+        </div>
+        <div class="login-item">
+        <label>Re-enter</label><input name="repassword" type="password" required>
+        </div>
+        <button class="btns" type="submit">Submit</button>
+        <p><b>{{ message }}</b></p>
+    </form>
+</div>
+{% endblock %}

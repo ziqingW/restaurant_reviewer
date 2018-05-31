@@ -3,6 +3,18 @@
 <title>Home</title>
 {% endblock %}
 {% block contents %}
+{% if user %}
+    <div class="container login-panel">
+        <p>Hello, {{ user }}</p>
+        <a href="/logoff">Log off</a>
+    </div>
+    {% else %}
+        <div class="container login-panel">
+            <a href="/login">Log in</a>
+            <span>|</span>
+            <a href="/signup">Sign up</a>
+        </div>
+    {% endif %}
 <div class="text-center search-background">
     <div class="image-panel">
     <img id="logo" src="/images/chef.png">

@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block contents %}
+{% if user %}
+    <div class="container login-panel">
+        <p>Hello, {{ user }}</p>
+        <a href="/logoff">Log off</a>
+    </div>
+    {% else %}
+        <div class="container login-panel">
+            <a href="/login">Log in</a>
+            <span>|</span>
+            <a href="/signup">Sign up</a>
+        </div>
+    {% endif %}
 <div class="main">
     <div class="search-results-background">
         <img id="search-logo" src="/images/chef.png">

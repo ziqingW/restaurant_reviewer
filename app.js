@@ -6,6 +6,8 @@ const app = express();
 const body_parser = require('body-parser');
 const session = require('express-session');
 const morgan = require('morgan');
+const pbkdf2 = require('pbkdf2');
+const crypto = require('crypto');
 
 app.use(morgan('dev'));
 nunjucks.configure('views', {
@@ -36,16 +38,25 @@ app.post('/login', function (request, response, next) {
   let username = request.body.username;
   let password = request.body.password;
   let q = "SELECT * FROM reviewer WHERE name = ${username}";
-  let message = "Incorrect login";
+  var message; 
   db.query(q, {username: username})
     .then( results => {
-        if(results.length > 0 && results[0].password == password) {
-            request.session.user = username;
-            request.session.reviewerId = results[0].id;
-            response.redirect('/');
+        if(results.length > 0) {
+            let passParts = results[0].password.split('$');
+            let key = pbkdf2.pbkdf2Sync(password, passParts[2], parseInt(passParts[1]), 256, 'sha256');
+            let hash = key.toString('hex');
+            if (hash === passParts[3]) {
+                request.session.user = username;
+                request.session.reviewerId = results[0].id;
+                response.redirect('/');
+                } else {
+                message = "Incorrect password";
+                response.render('login.html', {user: request.session.user, message: message});
+                }
         } else {
+            message = "User nonexisted";
             response.render('login.html', {user: request.session.user, message: message});
-        }
+        }    
     })
     .catch(next);
 });
@@ -69,7 +80,11 @@ app.post('/signup', function(req, resp, next) {
         .then( results => {
             if (results.length === 0) {
                 if (password == rePassword) {
-                db.query('INSERT INTO reviewer (id, name, password) VALUES (DEFAULT, ${username}, ${password}) RETURNING reviewer.id', {username: name, password: password})
+                    let salt = crypto.randomBytes(20).toString('hex');
+                    let key = pbkdf2.pbkdf2Sync(password, salt, 36000, 256, 'sha256');
+                    let hash = key.toString('hex');
+                    let stored_pass = `pbkdf2_sha256$36000$${salt}$${hash}`;
+                db.query('INSERT INTO reviewer (id, name, password) VALUES (DEFAULT, ${username}, ${password}) RETURNING reviewer.id', {username: name, password: stored_pass})
                     .then( val => {
                         req.session.reviewerId = val[0].id;
                         req.session.user = name;

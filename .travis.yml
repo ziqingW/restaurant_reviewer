@@ -4,3 +4,7 @@ node_js:
   - "8.9.4"
 install:
   - npm install
+notifications:
+  email:
+    on_success: never
+    on_failure: never
